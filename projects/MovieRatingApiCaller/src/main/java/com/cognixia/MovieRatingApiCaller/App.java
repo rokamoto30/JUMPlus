@@ -1,15 +1,17 @@
 package com.cognixia.MovieRatingApiCaller;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import com.cognixia.MovieRatingApiCaller.model.User;
+import com.cognixia.MovieRatingApiCaller.network.ApiException;
+import com.cognixia.MovieRatingApiCaller.service.UserService;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.io.IOException;
-import java.io.IOException;
 
 /**
  * Hello world!
@@ -17,25 +19,10 @@ import java.io.IOException;
  */
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws JsonParseException, JsonMappingException, IOException
     {
-    	HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create("http://localhost:8080/api/user/login/ryan/password"))
-				.method("GET", HttpRequest.BodyPublishers.noBody())
-				.build();
-		HttpResponse<String> response = null;
-		User user;
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-			user = mapper.readValue(response.body(), User.class);	
-			System.out.println(user.getEmail());
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println(response.body());
+    	User user = UserService.login("ryan", "password");
+    	System.out.println(user);
 		
     }
 }

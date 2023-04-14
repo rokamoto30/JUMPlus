@@ -2,6 +2,7 @@ package com.cognixia.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -28,7 +29,8 @@ public class User {
 	@Pattern(regexp = "^.+@.+$")
     @Column(unique=true, nullable = false)
     private String email;
-	
+    
+	@JsonIgnore
     @OneToMany(mappedBy = "rating", cascade = CascadeType.ALL)
     private List<Rating> ratings;
     

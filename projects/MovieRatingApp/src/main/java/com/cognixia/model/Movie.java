@@ -2,6 +2,7 @@ package com.cognixia.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -28,6 +29,7 @@ public class Movie {
 	@Column(nullable = true)
 	private Integer count;
 	
+    @JsonIgnore
 	@OneToMany(mappedBy = "rating", cascade = CascadeType.ALL)
     private List<Rating> ratings;
 
