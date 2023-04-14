@@ -14,6 +14,14 @@ public class UserService {
 	@Autowired
 	private UserRepo repo;
 	
+	public User getUser(String username) throws InvalidException {
+		Optional<User> found = repo.getUser(username);
+		if (found.isPresent()) {
+			return found.get();
+		}
+		throw new InvalidException("User doesnt exist");
+	}
+	
 	public Boolean userExists(String username) {
 		Optional<User> found = repo.getUser(username);
 		return found.isPresent();
