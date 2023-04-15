@@ -23,9 +23,9 @@ public class App
     		User user;
     		user = UserService.login("ryan", "password");
     		System.out.println(user);
-    		//user = UserService.create("rob", "password", "rob@gmail.com");
+    		//user = UserService.create("rob", "password", "password" "rob@gmail.com");
     		System.out.println(user);
-    		user = UserService.create("robby", "robby", "password", "rob@gmail.com");
+    		user = UserService.update("robby", "robby", "password", "rob@gmail.com");
     		System.out.println(user);
     		Movie[] movies;
     		movies = MovieService.getMovies();
