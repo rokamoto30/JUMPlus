@@ -27,6 +27,7 @@ public class App
 	private static Scanner sc;
 	private static String user;
 	private static String cookiePath = "./src/main/java/com/cognixia/MovieRatingApiCaller/cookie.txt";
+	private static String iconPath = "./src/main/java/com/cognixia/MovieRatingApiCaller/icon.txt";
 	
     public static void main( String[] args ) throws JsonParseException, JsonMappingException, IOException
     {
@@ -100,9 +101,23 @@ public class App
 		}
 	}
     
+    public static void icon() {
+    	try(BufferedReader reader = new BufferedReader(new FileReader(new File(iconPath)))) {
+    		String line = reader.readLine();
+    		while (line != null) {
+    			System.out.println(line);
+    			line = reader.readLine();
+    		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
     
     public static void production() {
     	sc = new Scanner(System.in);
+    	
+    	icon();
 		
     	readCookie();
 				
@@ -111,6 +126,12 @@ public class App
 			System.out.print(user + "> ");
 			String command = sc.nextLine(); 
 			switch(command.toLowerCase()) {
+				case "help":
+					System.out.println("User Commands: login, logout, create user, update user");
+					System.out.println("Movie Commands: get movies, get valid movies (only display ratings from validated users)");
+					System.out.println("Rating Commands: get my ratings, add rating, update rating");
+					break;
+			// user
 				case "login":
 					login();
 					break;
@@ -131,6 +152,23 @@ public class App
 						break;
 					}
 					System.out.println("Could not update");
+					break;
+			// movie
+				case "get movies":
+					MovieService.moviesDriver();
+					break;
+				case "get valid movies":
+					MovieService.validMovieDriver();
+					break;
+			// ratings
+				case "get my ratings":
+					RatingService.ratingDriver(user);
+					break;
+				case "add rating":
+					RatingService.createDriver(sc, user);
+					break;
+				case "update rating":
+					RatingService.updateDriver(sc, user);
 					break;
 				
 				default:

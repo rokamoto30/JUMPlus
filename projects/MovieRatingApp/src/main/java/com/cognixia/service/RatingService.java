@@ -38,7 +38,7 @@ public class RatingService {
 	}
 	
 	public Rating createRating(Double rating, String username, String movie) throws InvalidException {
-		if (username != "guest" && ratingExists(username, movie)) {
+		if (!username.equals("guest") && ratingExists(username, movie)) {
 			throw new InvalidException("Rating already exist"); 
 		}
 		Rating newRating = new Rating(null, rating, false, userService.getUser(username), movieService.getMovie(movie) );

@@ -1,11 +1,34 @@
 package com.cognixia.MovieRatingApiCaller.service;
 
-import java.util.Formatter;
-
 import com.cognixia.MovieRatingApiCaller.model.Movie;
+import com.cognixia.MovieRatingApiCaller.network.ApiException;
 import com.cognixia.MovieRatingApiCaller.network.Request;
 
 public class MovieService {
+	public static void moviesDriver() {
+		try {
+			Movie[] movies = MovieService.getMovies();
+			System.out.println(MovieService.tableFormat(movies));
+		} catch (ApiException e) {
+			System.out.println(e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void validMovieDriver() {
+		try {
+			Movie[] movies = MovieService.getMoviesValid();
+			System.out.println(MovieService.tableFormat(movies));
+		} catch (ApiException e) {
+			System.out.println(e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public static Movie[] getMovies() throws Exception {
 		String endpoint = String.format("/movie");
 		String response = Request.send(endpoint, "GET");
