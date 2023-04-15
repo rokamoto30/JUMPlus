@@ -15,7 +15,7 @@ public class Request {
 		
 	public static String send(String endpoint, String method) throws ApiException {
 		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create("http://localhost:8080/api/" + endpoint))
+				.uri(URI.create("http://localhost:8080/api" + endpoint))
 				.method(method, HttpRequest.BodyPublishers.noBody())
 				.build();
 		HttpResponse<String> response = null;
@@ -33,7 +33,7 @@ public class Request {
 		return null; 
 	}
 	
-	public static <T> T parse(String response, Class<T> typeParameterClass) throws JsonParseException, JsonMappingException, IOException {
+	public static <T> T parse(String response, Class<T> typeParameterClass) throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
 		T parsed = mapper.readValue(response, typeParameterClass); //https://stackoverflow.com/questions/3437897/how-do-i-get-a-class-instance-of-generic-type-t
 		return parsed;

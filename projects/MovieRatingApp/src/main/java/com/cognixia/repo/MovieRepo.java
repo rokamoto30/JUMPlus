@@ -11,10 +11,10 @@ import com.cognixia.model.Movie;
 
 @Repository
 public interface MovieRepo extends JpaRepository <Movie,Integer>{
-	@Query(value = "SELECT m.id, m.name, AVG(r.rating) as rating, COUNT(r.rating) as count FROM rating r LEFT JOIN movie m ON r.movie_id = m.id GROUP BY m.id", nativeQuery = true)
+	@Query(value = "SELECT m.id, m.name, AVG(r.rating) as rating, COUNT(r.rating) as count FROM movie m LEFT JOIN rating r ON m.id = r.movie_id GROUP BY m.id ORDER BY m.name", nativeQuery = true)
 	public List<Movie> getMovies();
 	
-	@Query(value = "SELECT m.id, m.name, AVG(r.rating) as rating, COUNT(r.rating) as count FROM rating r LEFT JOIN movie m ON r.movie_id = m.id LEFT JOIN user u ON r.user_id = u.id WHERE u.username != 'guest' GROUP BY m.id", nativeQuery = true)
+	@Query(value = "SELECT m.id, m.name, AVG(r.rating) as rating, COUNT(r.rating) as count FROM movie m LEFT JOIN rating r ON m.id = r.movie_id LEFT JOIN user u ON r.user_id = u.id WHERE u.username != 'guest' OR u.username IS NULL GROUP BY m.id ORDER BY m.name", nativeQuery = true)
 	public List<Movie> getMoviesNoGuest();
 	
 	@Query(value = "SELECT m.id, m.name FROM movie m WHERE m.name =?1", nativeQuery = true)

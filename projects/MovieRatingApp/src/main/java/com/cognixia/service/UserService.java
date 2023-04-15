@@ -52,6 +52,9 @@ public class UserService {
 	}
 	
 	public User updateUser(String curUser, String username, String password, String email) throws InvalidException {
+		if (curUser == "guest") {
+			throw new InvalidException("Cant update guest");
+		}
 		Optional<User> found = repo.getUser(curUser);
 		if (found.isEmpty()) {
 			throw new InvalidException("User doesnt exist");

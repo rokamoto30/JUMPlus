@@ -18,11 +18,29 @@ public class Movie {
 	
 	public Movie(){}
 	
-	public Movie(Integer id, String name, List<Rating> ratings) {
+	public Movie(Integer id, String name, Double rating, Integer count, List<Rating> ratings) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.rating = rating;
+		this.count = count;
 		this.ratings = ratings;
+	}
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 
 	public Integer getId() {

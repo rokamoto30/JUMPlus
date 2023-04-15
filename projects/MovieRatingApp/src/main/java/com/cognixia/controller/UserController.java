@@ -13,6 +13,8 @@ import com.cognixia.exception.InvalidException;
 import com.cognixia.model.User;
 import com.cognixia.service.UserService;
 
+import jakarta.validation.Valid;
+
 @RequestMapping("/api")
 @RestController
 public class UserController {
@@ -25,13 +27,13 @@ public class UserController {
 	}
 	
 	@PostMapping("/user/create/{username}/{password}/{email}")
-	public ResponseEntity<User> createUser(@PathVariable String username, @PathVariable String password, @PathVariable String email) throws InvalidException {
+	public ResponseEntity<User> createUser(@PathVariable String username, @PathVariable String password, @Valid @PathVariable String email) throws InvalidException {
 		User created = service.createUser(username, password, email);
 		return ResponseEntity.status(201).body(created);
 	}
 	
 	@PutMapping("/user/update/{curuser}/{username}/{password}/{email}")
-	public ResponseEntity<User> updateUser(@PathVariable String curuser, @PathVariable String username, @PathVariable String password, @PathVariable String email) throws InvalidException {
+	public ResponseEntity<User> updateUser(@PathVariable String curuser, @PathVariable String username, @PathVariable String password, @Valid  @PathVariable String email) throws InvalidException {
 		User updated = service.updateUser(curuser, username, password, email);
 		return ResponseEntity.status(201).body(updated);
 	}
