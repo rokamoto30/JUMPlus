@@ -1,24 +1,23 @@
-package com.cognixia.MovieRatingApiCaller.model;
+package com.cognixia.model;
 
+import org.springframework.stereotype.Component;
 
-
-
-public class Rating {
-	private Integer id;
+@Component
+public class RatingDTO {
+private Integer id;
 	
 	private Double rating;
 	
 	private Boolean favorite;
 	
-	private String user;
+	private Integer user;
 	
-	private String movie;
+	private Integer movie;
 	
 	
-	public Rating() {}
+	public RatingDTO() {}
 
-
-	public Rating(Integer id, Double rating, Boolean favorite, String user, String movie) {
+	public RatingDTO(Integer id, Double rating, Boolean favorite, Integer user, Integer movie) {
 		super();
 		this.id = id;
 		this.rating = rating;
@@ -27,63 +26,49 @@ public class Rating {
 		this.movie = movie;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public Double getRating() {
 		return rating;
 	}
-
 
 	public void setRating(Double rating) {
 		this.rating = rating;
 	}
 
-
 	public Boolean getFavorite() {
 		return favorite;
 	}
-
 
 	public void setFavorite(Boolean favorite) {
 		this.favorite = favorite;
 	}
 
-
-	public String getUser() {
+	public Integer getUser() {
 		return user;
 	}
 
-
-	public void setUser(String user) {
+	public void setUser(Integer user) {
 		this.user = user;
 	}
 
-
-	public String getMovie() {
+	public Integer getMovie() {
 		return movie;
 	}
 
-
-	public void setMovie(String movie) {
+	public void setMovie(Integer movie) {
 		this.movie = movie;
 	}
-
 
 	@Override
 	public String toString() {
 		return "Rating [id=" + id + ", rating=" + rating + ", favorite=" + favorite + ", user=" + user + ", movie="
 				+ movie + "]";
 	}
-	
-	
-	
 }

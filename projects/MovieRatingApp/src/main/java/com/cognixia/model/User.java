@@ -1,5 +1,6 @@
 package com.cognixia.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,7 +16,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
-public class User {
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -45,7 +47,7 @@ public class User {
 		this.email = email;
 		this.ratings = ratings;
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}

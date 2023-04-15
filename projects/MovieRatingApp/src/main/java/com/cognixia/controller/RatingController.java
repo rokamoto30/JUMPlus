@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cognixia.exception.InvalidException;
 import com.cognixia.model.Rating;
+import com.cognixia.model.RatingDTO;
 import com.cognixia.model.User;
+import com.cognixia.repo.RatingDtoRepo;
 import com.cognixia.service.RatingService;
 
 @RequestMapping("/api")
@@ -21,10 +23,19 @@ public class RatingController {
 	@Autowired
 	private RatingService service;
 	
+	@Autowired
+	private RatingDtoRepo dtoRepo;
+	
+//	@GetMapping("/rating/{username}")
+//	public List<Rating> getRatings(@PathVariable String username) {
+//		return service.getUserRatings(username);
+//	}
+	
 	@GetMapping("/rating/{username}")
-	public List<Rating> getRatings(@PathVariable String username) {
-		return service.getUserRatings(username);
+	public List<RatingDTO> getRatings(@PathVariable String username) {
+		return dtoRepo.getUserRatings(username);
 	}
+	
 	@PostMapping("/rating/{username}/{movie}/{rating}")
 	public ResponseEntity<Rating> createRating(@PathVariable String username, @PathVariable String movie, @PathVariable Double rating ) throws InvalidException {
 		Rating created = service.createRating(rating, username, movie);

@@ -1,6 +1,8 @@
 package com.cognixia.model;
 
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +16,9 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
 @Entity
-public class Rating {
+public class Rating implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -46,6 +50,7 @@ public class Rating {
 		this.user = user;
 		this.movie = movie;
 	}
+	
 
 	public Integer getId() {
 		return id;
