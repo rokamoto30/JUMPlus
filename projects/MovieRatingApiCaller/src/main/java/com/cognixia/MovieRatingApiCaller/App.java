@@ -43,7 +43,7 @@ public class App
     		ratings = RatingService.getRatings("ryan");
     		System.out.println(ratings);
     		Rating rating;
-    		rating = RatingService.create("ryan", "Avatar", 3.0);
+    		rating = RatingService.update("ryan", "The_Last_of_Us", 4.0, true);
     		
     		
     		
