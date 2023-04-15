@@ -33,7 +33,7 @@ public class App
     	production();
     }
     
-    private static void loadUser() {
+    private static void readCookie() {
     	try(BufferedReader reader = new BufferedReader(new FileReader(new File(cookiePath)))) {
 			String savedUser = reader.readLine();
 			if (savedUser != null) {
@@ -46,16 +46,28 @@ public class App
 			e.printStackTrace();
 		}
     }
-    
-    public static void logout() {
+    private static void writeCookie(String user) {
+    	//update cookies
+		try(BufferedWriter writer = new BufferedWriter( new FileWriter(new File(cookiePath), false))) {
+			writer.write(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    private static void logout() {
 		try(BufferedWriter writer = new BufferedWriter( new FileWriter(new File(cookiePath), false))) {
 			writer.write("");
-			user=null;
+			user="guest";
 			System.out.println("Logged out");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+    private static void switchUser(String newUser) {
+    	user = newUser;
+    	writeCookie(user);
+    }
+    
     
     public static void login() {
     	boolean loop = true;
@@ -69,15 +81,8 @@ public class App
 				
 				User loggedIn = UserService.login(username, password);
 				// if exception not thrown, then success
-				user = loggedIn.getUsername();
+				switchUser(loggedIn.getUsername());
 				System.out.println("Logged in as " + user);
-				
-				//update cookies
-				try(BufferedWriter writer = new BufferedWriter( new FileWriter(new File(cookiePath), false))) {
-					writer.write(user);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 				loop = false;
         
 			} catch (ApiException e) {
@@ -95,10 +100,11 @@ public class App
 		}
 	}
     
+    
     public static void production() {
     	sc = new Scanner(System.in);
 		
-		loadUser();
+    	readCookie();
 				
     	boolean running = true;
 		while (running) {
@@ -107,6 +113,24 @@ public class App
 			switch(command.toLowerCase()) {
 				case "login":
 					login();
+					break;
+				case "logout":
+					logout();
+					break;
+				case "create user":
+					User newUser = UserService.createDriver(sc);
+					if (newUser != null) {
+						switchUser(newUser.getUsername());
+					}
+					break;
+				case "update user":
+					User updated = UserService.updateDriver(user, sc);
+					if (updated != null) {
+						switchUser(updated.getUsername());
+						System.out.println("Sucsesfully updated");
+						break;
+					}
+					System.out.println("Could not update");
 					break;
 				
 				default:
