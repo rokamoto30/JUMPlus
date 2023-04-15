@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.cognixia.model.Rating;
-import com.cognixia.model.RatingDTO;
 
 @Repository
 public interface RatingRepo extends JpaRepository <Rating,Integer>{
@@ -16,6 +15,6 @@ public interface RatingRepo extends JpaRepository <Rating,Integer>{
 	@Query(value="SELECT r.* FROM rating r LEFT JOIN movie m ON r.movie_id = m.id LEFT JOIN user u on r.user_id = u.id WHERE u.username=?1 AND m.name=?2", nativeQuery = true)
 	public Optional<Rating> getRating(String username, String movie_name);
 	
-	@Query(value="SELECT r.* FROM rating r LEFT JOIN user u ON r.user_id = u.id WHERE u.username = ?1", nativeQuery = true)
+	@Query(value="SELECT r.id, r.movie_id, r.user_id, r.favorite, r.rating, m.name AS movie_name, u.username AS user_name FROM rating r LEFT JOIN user u ON r.user_id = u.id LEFT JOIN movie m ON r.movie_id = m.id WHERE u.username = ?1", nativeQuery = true)
 	public List<Rating> getUserRatings(String username);
 }

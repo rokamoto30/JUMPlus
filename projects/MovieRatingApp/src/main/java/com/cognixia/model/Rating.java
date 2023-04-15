@@ -3,6 +3,8 @@ package com.cognixia.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,11 +32,15 @@ public class Rating implements Serializable {
 	
 	private Boolean favorite;
 	
+	private String user_name;
+	private String movie_name;
 	
+	@JsonIgnore 
 	@ManyToOne
 	@JoinColumn( name = "user_id", referencedColumnName = "id")
 	private User user;
 	
+	@JsonIgnore 
 	@ManyToOne
 	@JoinColumn( name = "movie_id", referencedColumnName = "id")
 	private Movie movie;
@@ -50,7 +56,6 @@ public class Rating implements Serializable {
 		this.user = user;
 		this.movie = movie;
 	}
-	
 
 	public Integer getId() {
 		return id;
@@ -76,6 +81,22 @@ public class Rating implements Serializable {
 		this.favorite = favorite;
 	}
 
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getMovie_name() {
+		return movie_name;
+	}
+
+	public void setMovie_name(String movie_name) {
+		this.movie_name = movie_name;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -94,8 +115,10 @@ public class Rating implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Rating [id=" + id + ", rating=" + rating + ", favorite=" + favorite + ", user=" + user + ", movie="
-				+ movie + "]";
+		return "Rating [id=" + id + ", rating=" + rating + ", favorite=" + favorite + ", user_name=" + user_name
+				+ ", movie_name=" + movie_name + ", user=" + user + ", movie=" + movie + "]";
 	}
+
+	
 	
 }

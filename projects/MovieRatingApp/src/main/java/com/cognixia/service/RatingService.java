@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.cognixia.exception.InvalidException;
 import com.cognixia.model.Rating;
-import com.cognixia.model.RatingDTO;
 import com.cognixia.repo.RatingRepo;
 
 

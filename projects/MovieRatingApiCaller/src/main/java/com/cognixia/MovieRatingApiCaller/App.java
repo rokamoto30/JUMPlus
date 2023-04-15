@@ -42,6 +42,8 @@ public class App
     		Rating[] ratings;
     		ratings = RatingService.getRatings("ryan");
     		System.out.println(ratings);
+    		Rating rating;
+    		rating = RatingService.create("ryan", "Avatar", 3.0);
     		
     		
     		

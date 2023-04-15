@@ -16,7 +16,7 @@ public class MovieService {
 	private MovieRepo repo; 
 	
 	public Movie getMovie(String movie) throws InvalidException {
-		Optional<Movie> found = repo.getMovie(movie);
+		Optional<Movie> found = repo.getMovie(movie);		
 		if (found.isPresent()) {
 			return found.get();
 		}
