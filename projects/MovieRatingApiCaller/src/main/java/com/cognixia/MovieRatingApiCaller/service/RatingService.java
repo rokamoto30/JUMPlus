@@ -109,7 +109,5 @@ public class RatingService {
 		}
 		table.append(breaker);
 		return table;
-		
-		
 	}
 }
