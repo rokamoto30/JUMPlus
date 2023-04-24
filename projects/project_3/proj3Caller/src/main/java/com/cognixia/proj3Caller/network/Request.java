@@ -21,9 +21,11 @@ public class Request {
 		HttpResponse<String> response = null;
 		try {
 			response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
 			if (response.statusCode() >= 200 && response.statusCode() < 300 ) {
 				return response.body();
 			}
+
 			throw new ApiException(response.body());
 		} catch (IOException e) {
 			e.printStackTrace();

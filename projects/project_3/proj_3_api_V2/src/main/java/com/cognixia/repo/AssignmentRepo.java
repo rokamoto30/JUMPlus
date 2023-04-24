@@ -26,5 +26,5 @@ public interface AssignmentRepo extends JpaRepository<Assignment, Integer> {
 	@Transactional
 	@Modifying
 	@Query(value ="DELETE FROM assignment a WHERE a.student_id = ?1 AND a.course_id = ?2", nativeQuery = true)
-	public void removeStudent(Integer studentId, Integer CourseId);
+	public int removeStudent(Integer studentId, Integer CourseId);
 }

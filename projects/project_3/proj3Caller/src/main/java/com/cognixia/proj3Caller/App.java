@@ -107,6 +107,8 @@ public class App
 	    	System.out.println("Enter password:");
 	    	String password = sc.nextLine();
 	    	try {
+	    		System.out.println(username);
+	    		System.out.println(password);
 		    	user = TeacherService.create(username, password, "first", "last").getUsername();
 		    	notLoggedIn = false;
 	    	} catch (ApiException e) {
@@ -128,7 +130,7 @@ public class App
 			String command = sc.nextLine();
 			switch(command.toLowerCase()) {
 				case "help":
-					System.out.println("students, courses, create course, create assignment");
+					System.out.println("students, courses, create course, create assignment, remove student");
 					break;
 				case "students":
 					System.out.println("Enter course:");
@@ -173,7 +175,18 @@ public class App
 						System.out.println(e.getMessage());
 					}
 					break;
-					
+				case "remove student":
+					System.out.println("Enter student name");
+					studentName = sc.nextLine();
+					System.out.println("Enter course name");
+					String courseName = sc.nextLine();
+					try {
+						TeacherService.removeStudent(studentName, courseName);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println(e.getMessage());
+					}
+					break;
 				
 				default:
 					System.out.println("Please type a valid input/command. For help, type help");
@@ -196,7 +209,7 @@ public class App
 //    		TeacherService.createAssignment("ryan", "student3", "math", 40.0, .25);
     		TeacherService.getCourses("ryan");
     		TeacherService.getStudents("ryan", "math");
-    		TeacherService.removeStudent("ryan", "student3", "cs");    		
+    		TeacherService.removeStudent("student3", "cs");    		
     	} catch (Exception e) {
     		System.out.println(e.getMessage());
     	}

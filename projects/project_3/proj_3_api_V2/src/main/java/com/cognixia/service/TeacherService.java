@@ -111,9 +111,15 @@ public class TeacherService {
 		return createAssignment(teacherName, studentName, courseName, 0.0, 0.0);
 	}
 	
-	public void removeStudent(String teacherName, String studentName, String courseName) throws InvalidException {
-		System.out.println(getUser(studentName).getId());
-		System.out.println(getCourse(teacherName, courseName).getId());
-		assignmentRepo.removeStudent(getCourse(teacherName, courseName).getId(), getUser(studentName).getId());
+	public void removeStudent(String studentName, String courseName) throws InvalidException {
+//		System.out.println(getUser(studentName).getId());
+//		System.out.println(getCourse(teacherName, courseName).getId());
+//		assignmentRepo.removeStudent(getCourse(teacherName, courseName).getId(), getUser(studentName).getId());
+		
+		List<Assignment> found = assignmentRepo.getAssignments(getUser(studentName).getId(), courseName);
+		for (Assignment record : found) {
+			assignmentRepo.deleteById(record.getId());
+		}
+		
 	}
 }

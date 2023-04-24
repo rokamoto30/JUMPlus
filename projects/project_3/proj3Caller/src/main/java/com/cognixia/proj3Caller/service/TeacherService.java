@@ -66,8 +66,8 @@ public class TeacherService {
 //			System.out.println(" " + cur.getStudentName());
 		}
 	}
-	public static void removeStudent(String teacherName, String studentName, String courseName) throws ApiException {
-		String endpoint = String.format("/teacher/deleteStudent/%s/%s/%s", teacherName, studentName, courseName);
+	public static void removeStudent(String studentName, String courseName) throws ApiException {
+		String endpoint = String.format("/teacher/deleteStudent/%s/%s", studentName, courseName);
 		String response = Request.send(endpoint, "DELETE");
 	}
 }

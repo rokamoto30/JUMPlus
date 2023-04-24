@@ -66,9 +66,9 @@ public class TeacherController {
 		return service.addStudent(teacherName, studentName, courseName);
 	}
 	
-	@DeleteMapping("/teacher/deleteStudent/{teacherName}/{studentName}/{courseName}")
-	public void removeStudent(@PathVariable String teacherName, @PathVariable String studentName, @PathVariable String courseName) throws InvalidException {
-		service.removeStudent(teacherName, studentName, courseName);
+	@DeleteMapping("/teacher/deleteStudent/{studentName}/{courseName}")
+	public void removeStudent(@PathVariable String studentName, @PathVariable String courseName) throws InvalidException {
+		service.removeStudent(studentName, courseName);
 	}
 	
 }
