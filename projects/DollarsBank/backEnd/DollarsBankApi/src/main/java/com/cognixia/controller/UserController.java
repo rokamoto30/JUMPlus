@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
 import com.cognixia.exception.InvalidException;
 import com.cognixia.model.Account;
 import com.cognixia.model.Trans;
@@ -17,9 +20,11 @@ import com.cognixia.service.UserService;
 
 @RequestMapping("/api")
 @RestController
+@CrossOrigin
 public class UserController {
 	@Autowired
 	UserService service;
+
 	
 	@GetMapping("/user/login/{username}/{password}")
 	public User login(@PathVariable String username, @PathVariable String password) throws InvalidException {

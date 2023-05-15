@@ -6,38 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../JS/index.js"></script>
+    <link rel="stylesheet" href="../CSS/index.css">
+
     
 </head>
-<body>
-    <!-- <div>
-        <p>Hello world</p>
-        <label for="test1">text1</label><br>
-        <label for="test2">text2</label><br>
-        <input type="text" id="text1"><br>
-        <input type="text" id="text2"><br>
-        <input type="text"><br>
-        <input type="text"><br>
-    </div> -->
-    <!-- <button id="my-button">make call</button> -->
-    <!-- <script type = "text/javascript" src="index.js"></script>   -->
-    <!-- <button onclick="changeColor()">Change color</button>
-    <div id="my-div"></div> -->
+<body onload="render()">
+    
+    <h1 id="currentUserDisplay">Not Logged in</h1>
+    <button type="button" id="btnGet" onclick="logout()">logout</button><br><br>
 
-    <input type="text" id="pokemonNameGet" placeholder="pokemonName" />
-    <button type="button" id="btnGet" onclick="getPokemon()">Retrive</button>
-    <!-- <script>
-        function getPokemon() {
-            const pokemonName = document.getElementById("pokemonNameGet").value;
-            if (!pokemonName) {
-                alert("Please enter a pokemon name");
-                return;
-            }
+    <div class="slice">
+        <input type="text" id="newAccountName" placeholder="account name" /><br>
+        <input type="text" id="newBalance" placeholder="balance" /><br>
+        <button type="button" id="createAccount" onclick="createAccount()">createAccount</button>
 
-            const endpoint = new URL(`https://pokeapi.co/api/v2/pokemon/${ pokemonName }`);
-            console.log(endpoint);
+        <table>
+            <thread>
+                <tr>
+                    <th>Name</th>
+                    <th>Balance</th>
+                </tr>
+            </thread>
+            <tbody id="accountBody">
 
-        }
-    </script> -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="slice">
+        <button type="button" id="createAccount" onclick="transaction()">Withdraw/Deposit</button>
+        <button type="button" id="createAccount" onclick="transfer()">Transfer</button>
+        <table>
+            <thread>
+                <tr>
+                    <th>Amount</th>
+                    <th>Description</th>
+                </tr>
+            </thread>
+            <tbody id="transBody">
+
+            </tbody>
+        </table>
+
+    </div>
 
 </body>
 </html>

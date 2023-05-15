@@ -1,3 +1,22 @@
 p {
     color: blue
 }
+
+.center { /*https://blog.hubspot.com/website/center-div-css*/
+    position: absolute;
+    top: 50%; /*centers the top left corner*/
+    left: 50%;
+    transform: translate(-50%, -50%); /*centers the div by moving 50 left and up*/
+    border: 3px solid #000000;
+    padding: 20px;
+}
+
+.centerH {
+    margin: auto;
+    text-align: center;
+}
+
+.slice {
+    float:left;
+    margin:20px;
+}
