@@ -3,15 +3,19 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {NavBar} from "./components/navbar";
 import{Login} from "./pages/login/login";
+import{Register} from "./pages/login/register";
 import{Shop} from "./pages/shop/shop";
 import{Checkout} from "./pages/checkout/checkout";
 import{History} from "./pages/history/history";
 import { ShopContextProvider } from './context/shopContext';
+import { CartContextProvider } from './context/context';
+import { UserContextProvider } from './context/context';
+import { InventoryContextProvider } from './context/context';
 import { useState, useEffect } from 'react';
 
 
 function App() {
-  const [curUser, setUser] = useState();
+  
 
   const [products, setProducts] = useState([]);
   useEffect(() => { // make api call and parse as json
@@ -21,26 +25,42 @@ function App() {
     .catch(error => console.error(error));
   }, []);
 
+
+  const [curUser, setUser] = useState("guest");
+  useEffect(() => { // make api call and parse as json
+    fetch('http://localhost:3000/users')
+    .then(response => response.json())
+    .then(json => setUser(json))
+    .catch(error => console.error(error));
+  }, []);
+
+
   let props = {
     products: products,
     setProducts: setProducts,
     curUser: curUser,
     setUser: setUser
   }
-
   return (
     <div  className = "App">
-      <ShopContextProvider>
-        <Router>
-          <NavBar/>
-          <Routes>
-            <Route path="/login" element={<Login/>}></Route>
-            <Route path="/shop" element={<Shop/>}></Route>
-            <Route path="/checkout" element={<Checkout/>}></Route>
-            <Route path="/history" element={<History/>}></Route>
-          </Routes>
-        </Router>
-      </ShopContextProvider>
+      <UserContextProvider>
+        <InventoryContextProvider>
+          <CartContextProvider>
+            <ShopContextProvider>
+              <Router>
+                <NavBar/>
+                <Routes>
+                  <Route path="/login" element={<Login data={props}/>}></Route>
+                  <Route path="/register" element={<Register data={props}/>}></Route>
+                  <Route path="/" element={<Shop data={props}/>}></Route>
+                  <Route path="/checkout" element={<Checkout data={props}/>}></Route>
+                  <Route path="/history" element={<History data={props}/>}></Route>
+                </Routes>
+              </Router>
+            </ShopContextProvider>
+          </CartContextProvider>
+        </InventoryContextProvider>
+      </UserContextProvider>
     </div>
   );
 

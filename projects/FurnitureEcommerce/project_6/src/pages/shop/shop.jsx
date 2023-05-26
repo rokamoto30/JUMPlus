@@ -1,17 +1,13 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import {useContext } from 'react';
+import {UserContext, InventoryContext} from "../../context/context"
 import {Product} from "./product";
 import "./shop.css";
-export const Shop = () => {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => { // make api call and parse as json
-        fetch('http://localhost:3000/furniture')
-        .then(response => response.json())
-        .then(json => setProducts(json))
-        .catch(error => console.error(error));
-    }, []);
-
+export const Shop = (props) => {
+    // const{products, setProducts, curUser, setUser} = props.data;
+    const{curUser, setUser} = useContext(UserContext);
+    const{products} = useContext(InventoryContext);
+    console.log(curUser)
 
   return (
     <div className = "shop">

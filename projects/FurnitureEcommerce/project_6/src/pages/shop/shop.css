@@ -1,5 +1,4 @@
 /* Product container */
-
 .title {
     margin-top: 1vw;
     margin-bottom: 2vw;
@@ -48,7 +47,7 @@
     text-align: center;
   }
 
-  .buy {
+  .buy{
     background-color: transparent;
     border: .2vw solid rgb(19, 19, 19);
     padding-left: 1vw;
@@ -64,4 +63,34 @@
     background-color: rgb(19, 19, 19);
     color: white;
     cursor: pointer;
+  }
+
+  .subButton:hover, .addButton:hover {
+    background-color: #d1d1d1;
+    
+    color: black;
+    cursor: pointer;
+    border-radius: .9vw;
+  }
+
+  .subButton, .addButton, .buyText {
+
+    flex: 1;
+    margin-right: 5px;
+    background-color: transparent;
+    border: transparent;
+    font-size: 1.25vw;
+    width: 3vw;
+    height: 2vw
+  }
+  
+
+  .buyButton{
+    display: flex;
+    background-color: #f2f2f2;
+    border-radius: .9vw;
+  }
+
+  .buyButton button:last-child {
+    margin-right: 0;
   }
