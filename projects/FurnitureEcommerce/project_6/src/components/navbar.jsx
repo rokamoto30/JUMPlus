@@ -14,7 +14,7 @@ export const NavBar = () => {
 
             <Link to="/login"> <IdentificationBadge  size={iconSize}/> </Link>
 
-            <Link to="/history"> <Receipt  size={iconSize}/> </Link>
+            {/* <Link to="/history"> <Receipt  size={iconSize}/> </Link> */}
 
         </div>
     </div>

@@ -4,6 +4,7 @@
     margin-bottom: 2vw;
     text-align: center;
     font-size: 4vw;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
   }
 
 
@@ -29,6 +30,8 @@
     object-fit: scale-down;
     margin-bottom: 0vw;
     border-radius: 30px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    
   }
   
   /* Product name */
@@ -37,6 +40,7 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 0vw;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
   }
   
   /* Product price */
@@ -45,6 +49,7 @@
     font-size: 1.5vw;
     color: #888;
     text-align: center;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
   }
 
   .buy{
@@ -63,14 +68,16 @@
     background-color: rgb(19, 19, 19);
     color: white;
     cursor: pointer;
+    
   }
 
   .subButton:hover, .addButton:hover {
-    background-color: #d1d1d1;
+    background-color: #d6d6d6;
     
     color: black;
     cursor: pointer;
     border-radius: .9vw;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   }
 
   .subButton, .addButton, .buyText {
@@ -81,7 +88,8 @@
     border: transparent;
     font-size: 1.25vw;
     width: 3vw;
-    height: 2vw
+    height: 2vw;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
   }
   
 
@@ -89,6 +97,7 @@
     display: flex;
     background-color: #f2f2f2;
     border-radius: .9vw;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
   }
 
   .buyButton button:last-child {

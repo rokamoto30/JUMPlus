@@ -8,7 +8,7 @@ export const CheckoutItem = (props) => {
     <div className = "checkoutItem">
         <text>{product.name}</text>
         <text>${product.price}</text>
-        <text>X{count}</text>
+        <text>X {count}</text>
     </div>
   )
 }

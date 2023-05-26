@@ -19,34 +19,44 @@
       "username": "bob",
       "password": "password",
       "id": 4
+    },
+    {
+      "username": "mike",
+      "password": "password",
+      "id": 5
+    },
+    {
+      "username": "billy",
+      "password": "password",
+      "id": 6
     }
   ],
   "furniture": [
     {
       "id": 1,
       "name": "Sofa",
-      "price": 699,
+      "price": 699.99,
       "image": "https://www.ikea.com/us/en/images/products/paerup-sofa-with-chaise-vissle-gray__0950149_pe800169_s5.jpg?f=s",
       "source": "https://www.ikea.com/us/en/p/paerup-sofa-with-chaise-vissle-gray-s79389842/"
     },
     {
       "id": 2,
       "name": "Dining Table",
-      "price": 299,
+      "price": 299.99,
       "image": "https://www.ikea.com/us/en/images/products/ekedalen-extendable-table-dark-brown__0872511_pe640615_s5.jpg?f=s",
       "source": "https://www.ikea.com/us/en/p/ekedalen-extendable-table-dark-brown-20340758/"
     },
     {
       "id": 3,
       "name": "Bed",
-      "price": 379,
+      "price": 379.99,
       "image": "https://www.ikea.com/us/en/images/products/malm-high-bed-frame-2-storage-boxes-white__1101597_pe866769_s5.jpg?f=s",
       "source": "https://www.ikea.com/us/en/p/malm-high-bed-frame-2-storage-boxes-white-s39175961/"
     },
     {
       "id": 4,
       "name": "Speakers",
-      "price": 181.98,
+      "price": 181.99,
       "image": "https://www.ikea.com/us/en/images/products/tillreda-microwave-oven-white__1076734_pe856842_s5.jpg?f=s",
       "source": "https://www.ikea.com/us/en/p/symfonisk-wi-fi-bookshelf-speaker-w-led-spot-black-gen-2-s49514673/"
     },

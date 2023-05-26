@@ -1,8 +1,10 @@
 import React, {useContext, useState} from 'react'
 import {UserContext} from "../../context/context"
+import {Link} from "react-router-dom"
 
 
-export const Register = () => {
+
+export const Register = (props) => {
     const{curUser, setUser} = useContext(UserContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -10,6 +12,12 @@ export const Register = () => {
     const errorHandler = (error) => {
         console.log(error);
     }
+
+    const setCurUserForAll = (username) => {
+      setUser(username);
+      props.data(username);
+    }
+    
 
     const register = (e) => {
         e.preventDefault();
@@ -26,7 +34,7 @@ export const Register = () => {
                     body: JSON.stringify({username, password})
                 })
                 .then(response => response.json())
-                .then(json => setUser(json.username))
+                .then(json => setCurUserForAll(json.username))
             } else {
                 errorHandler("user already exists")
             }
@@ -65,13 +73,14 @@ export const Register = () => {
       <div>register</div>
       <form onSubmit={register}>
         <label htmlFor="username">username</label>
-        <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
+        <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input><br />
         <label htmlFor="password">password</label>
         <input type="password" placeholder="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
         <button type="submit" id="submitButton">Register</button>
         {/* <button onClick={Login(document.getElementById("username_id").value, document.getElementById("password_id").value)}>Log in</button>
         <button>Register</button> */}
         {/* <Link to="/register"> Or Register Here! </Link> */}
+        <Link to="/login"> Back To Login </Link>
 
 
       </form>

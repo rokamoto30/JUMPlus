@@ -12,7 +12,7 @@ export const Shop = (props) => {
   return (
     <div className = "shop">
         <div>
-            <h1 className = "title"> Shopping </h1>
+            <h1 className = "title"> Mykea </h1>
         </div>
         <div className = "products"> 
 
