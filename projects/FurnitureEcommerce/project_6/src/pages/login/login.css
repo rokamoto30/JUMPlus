@@ -1,31 +1,69 @@
-/* button {
-    border: none;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #7439db;
-  }
-  label {
-    text-align: left;
-    padding: 0.25rem 0;
-  }
-  
-  input {
-    margin: 0.5rem 0;
-    padding: 1rem;
-    border: none;
-    border-radius: 10px;
-  }
 
-  .link-btn {
-    background: none;
-    color: white;
-    text-decoration: underline;
-  } */
 
-  form{
+  .login{
     display: flex;
     justify-content:center;
     align-items: center;
+    min-height: 90vh;
   }
+  form {
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px 0 15px;
+  }
+  #username, #password {
+    height: 45px;
+    width: 87%;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background-color: #f2f2f2;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 0 0 0 45px;
+  }
+
+  #username:hover, #password:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  }
+
+  .submit{
+    border:none;
+    border-radius: 30px;
+    font-size: 15px;
+    height: 45px;
+    width: 100%;
+    outline:none;
+    background-color: #6DA9E4;
+    cursor: pointer;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+
+
+  }
+  .submit:hover {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .link {
+    margin-top: 1vw;
+    text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    color: #333;
+    text-decoration: none;
+  }
+  .link:hover {
+    text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .title {
+    height: -100px;
+  }
+
+  .icon{
+    position: relative;
+    top: -14%;
+    left: -43%;
+  }
+
+

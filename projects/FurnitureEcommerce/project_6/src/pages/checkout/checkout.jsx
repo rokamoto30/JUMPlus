@@ -22,7 +22,7 @@ export const Checkout = () => {
 
   const{addToCart, cartItems} = useContext(ShopContext);
 
-  const total = () => {
+  const subTotal = () => {
     let totalCost = 0;
     for (let product of products) {
       let count = cartItems[product.id];
@@ -31,6 +31,30 @@ export const Checkout = () => {
       }
     }
     return totalCost;
+  }
+
+  const discount = () => {
+    if (subTotal() > 2000) {
+      let props = {
+        label: "Discount",
+        count: "20%"
+      }
+      return <CheckoutItem data={props}></CheckoutItem>;
+    }
+    return "";
+  }
+
+  const total = () => {
+    let curTotal = subTotal()
+    if (curTotal > 2000) {
+      curTotal -= curTotal*.2
+    }
+    let rounded = Math.ceil(curTotal * 100) / 100
+    let props = {
+      label: "Total",
+      count: rounded
+    }
+    return <CheckoutItem data={props}></CheckoutItem>
   }
 
 
@@ -52,10 +76,10 @@ export const Checkout = () => {
               return <CheckoutItem data={props}></CheckoutItem>
             }
           })
-         }
+         } <br />{discount()} <br /> {total()}
       </div>
       <div className = "paymentInfo">
-         {total()}
+         
       </div>
     </div>
   )

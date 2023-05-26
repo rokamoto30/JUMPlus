@@ -50,7 +50,6 @@ function App() {
   const [registerState, setRegisterState] = useState(<Register data={setAppCurUser}/>)
 
   const getLoginPage = () => {
-    console.log("switching login")
     if (appCurUser === "") {
       return <Login data={setAppCurUser}/>
     } else {
@@ -58,7 +57,6 @@ function App() {
     }
   }
   const getRegisterPage = () => {
-    console.log("switching register")
     if (appCurUser === "") {
       return <Register data={setAppCurUser}/>
     } else {

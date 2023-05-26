@@ -1,6 +1,8 @@
 import React, {useContext, useState} from 'react'
 import {UserContext} from "../../context/context"
 import {Link} from "react-router-dom"
+import {User, LockSimple} from "phosphor-react"
+const  iconSize = 25;
 
 
 
@@ -70,20 +72,23 @@ export const Register = (props) => {
 
   return (
     <div className="login">
-      <div>register</div>
+      {/* <div>register</div> */}
       <form onSubmit={register}>
-        <label htmlFor="username">username</label>
-        <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input><br />
-        <label htmlFor="password">password</label>
-        <input type="password" placeholder="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-        <button type="submit" id="submitButton">Register</button>
-        {/* <button onClick={Login(document.getElementById("username_id").value, document.getElementById("password_id").value)}>Log in</button>
-        <button>Register</button> */}
-        {/* <Link to="/register"> Or Register Here! </Link> */}
-        <Link to="/login"> Back To Login </Link>
+      <div className="title">Register</div>
 
+        {/* <label htmlFor="username">username</label> */}
+        <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input><br />
+        <User className="icon" size={iconSize}/>
+
+        {/* <label htmlFor="password">password</label> */}
+        <input type="password" placeholder="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br/>
+        <LockSimple className="icon" size={iconSize}/>
+
+        <button type="submit" className = "submit" id="submitButton">Register</button>
+        <Link to="/login" className="link"> Back To Login </Link>
 
       </form>
+      
     </div>
   )
 }

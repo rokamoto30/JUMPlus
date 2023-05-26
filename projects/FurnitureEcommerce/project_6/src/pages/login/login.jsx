@@ -2,6 +2,9 @@ import React, {useContext, useState} from 'react'
 import {UserContext} from "../../context/context"
 import {Link} from "react-router-dom"
 import "./login.css";
+import {User, LockSimple} from "phosphor-react"
+const  iconSize = 25;
+
 
 
 
@@ -42,14 +45,19 @@ export const Login = (props) => {
 
   return (
     <div className="login">
-      <div>login</div>
       <form onSubmit={login}>
-        <label htmlFor="username">username</label>
+      <div className="title">login</div>
+
+        {/* <label htmlFor="username">username</label> */}
         <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input><br/>
-        <label htmlFor="password">password</label>
+        <User className="icon" size={iconSize}/>
+
+        {/* <label htmlFor="password">password</label> */}
         <input type="password" placeholder="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br/>
-        <button type="submit" id="submitButton">Login</button>
-        <Link to="/register"> Or Register Here! </Link>
+        <LockSimple className="icon" size={iconSize}/>
+
+        <button type="submit" className="submit" id="submitButton">Login</button>
+        <Link to="/register" className="link"> Or Register Here! </Link>
 
 
       </form>
