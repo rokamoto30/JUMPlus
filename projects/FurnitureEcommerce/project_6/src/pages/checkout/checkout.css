@@ -1,0 +1,34 @@
+.checkoutItem {
+    height: auto;
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    font-size: 1.5vw;
+    justify-items: start;
+  }
+
+  .checkoutItems {
+    position: absolute;
+    left: 20%;
+    width: 30%;
+    height: auto;
+    padding: 1vw;
+
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 30px;
+    background-color: #f2f2f2;
+    opacity: 100;
+
+  }
+  .paymentInfo {
+    position: absolute;
+    right: 20%;
+    width: 30%;
+    height: auto;
+    padding: 1vw;
+
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 30px;
+
+  }

@@ -1,0 +1,43 @@
+{
+  "furniture": [
+    {
+      "id": 1,
+      "name": "Sofa",
+      "price": 699.00,
+      "image": "https://www.ikea.com/us/en/images/products/paerup-sofa-with-chaise-vissle-gray__0950149_pe800169_s5.jpg?f=s",
+      "source" : "https://www.ikea.com/us/en/p/paerup-sofa-with-chaise-vissle-gray-s79389842/"
+    },
+    {
+      "id": 2,
+      "name": "Dining Table",
+      "price": 299.00,
+      "image": "https://www.ikea.com/us/en/images/products/ekedalen-extendable-table-dark-brown__0872511_pe640615_s5.jpg?f=s",
+      "source": "https://www.ikea.com/us/en/p/ekedalen-extendable-table-dark-brown-20340758/"
+    },
+    {
+      "id": 3,
+      "name": "Bed",
+      "price": 379.00,
+      "image": "https://www.ikea.com/us/en/images/products/malm-high-bed-frame-2-storage-boxes-white__1101597_pe866769_s5.jpg?f=s",
+      "source": "https://www.ikea.com/us/en/p/malm-high-bed-frame-2-storage-boxes-white-s39175961/"
+    }, {
+      "id": 4,
+      "name": "Speakers",
+      "price": 181.98,
+      "image": "https://www.ikea.com/us/en/images/products/tillreda-microwave-oven-white__1076734_pe856842_s5.jpg?f=s",
+      "source": "https://www.ikea.com/us/en/p/symfonisk-wi-fi-bookshelf-speaker-w-led-spot-black-gen-2-s49514673/"
+    }, {
+      "id": 5,
+      "name": "Microwave",
+      "price": 59.99,
+      "image": "https://www.ikea.com/us/en/images/products/malm-high-bed-frame-2-storage-boxes-white__1101597_pe866769_s5.jpg?f=s",
+      "source": "https://www.ikea.com/us/en/p/tillreda-microwave-oven-white-40493420/"
+    } , {
+      "id": 6,
+      "name": "Lamp",
+      "price": 79.99,
+      "image": "https://www.ikea.com/us/en/images/products/lauters-floor-lamp-ash-white__0879908_pe714870_s5.jpg?f=xl",
+      "source": "https://www.ikea.com/us/en/p/lauters-floor-lamp-ash-white-00405048/"
+    }
+  ]
+}
