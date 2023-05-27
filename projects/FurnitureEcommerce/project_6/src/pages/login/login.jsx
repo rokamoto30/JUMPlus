@@ -13,8 +13,10 @@ export const Login = (props) => {
   const{curUser, setUser} = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const errorHandler = (error) => {
+    setError("Invalid Login");
     console.log(error);
   }
 
@@ -36,7 +38,6 @@ export const Login = (props) => {
         setCurUserForAll(json[0].username)
       })
       .catch(error => {
-        setUser()
         errorHandler(error)
       });
   }
@@ -49,13 +50,13 @@ export const Login = (props) => {
       <div className="title">login</div>
 
         {/* <label htmlFor="username">username</label> */}
-        <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input><br/>
+        <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required></input>
         <User className="icon" size={iconSize}/>
 
         {/* <label htmlFor="password">password</label> */}
-        <input type="password" placeholder="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br/>
+        <input type="password" placeholder="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
         <LockSimple className="icon" size={iconSize}/>
-
+        <text className="errorText">{error}</text>
         <button type="submit" className="submit" id="submitButton">Login</button>
         <Link to="/register" className="link"> Or Register Here! </Link>
 

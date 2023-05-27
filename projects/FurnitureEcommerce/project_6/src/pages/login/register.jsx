@@ -10,8 +10,11 @@ export const Register = (props) => {
     const{curUser, setUser} = useContext(UserContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
 
     const errorHandler = (error) => {
+        setError(error);
         console.log(error);
     }
 
@@ -38,7 +41,7 @@ export const Register = (props) => {
                 .then(response => response.json())
                 .then(json => setCurUserForAll(json.username))
             } else {
-                errorHandler("user already exists")
+                errorHandler("User already exists")
             }
           })
           .catch(error => console.log(error));
@@ -77,13 +80,14 @@ export const Register = (props) => {
       <div className="title">Register</div>
 
         {/* <label htmlFor="username">username</label> */}
-        <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}></input><br />
+        <input type="text" placeholder="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required></input>
         <User className="icon" size={iconSize}/>
 
         {/* <label htmlFor="password">password</label> */}
-        <input type="password" placeholder="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br/>
+        <input type="password" placeholder="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
         <LockSimple className="icon" size={iconSize}/>
 
+        <text className="errorText">{error}</text>
         <button type="submit" className = "submit" id="submitButton">Register</button>
         <Link to="/login" className="link"> Back To Login </Link>
 

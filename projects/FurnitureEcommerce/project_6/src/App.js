@@ -7,10 +7,16 @@ import{Register} from "./pages/login/register";
 import{Shop} from "./pages/shop/shop";
 import{Checkout} from "./pages/checkout/checkout";
 import{History} from "./pages/history/history";
+import{Account} from "./pages/account/account";
+import{Order} from "./pages/account/order";
+
+
 import { ShopContextProvider } from './context/shopContext';
 import { CartContextProvider } from './context/context';
 import { UserContextProvider } from './context/context';
 import { InventoryContextProvider } from './context/context';
+import { PaymentContextProvider } from './context/context';
+
 import { useState, useEffect } from 'react';
 // import {UserContext} from "../../context/context"
 
@@ -53,39 +59,38 @@ function App() {
     if (appCurUser === "") {
       return <Login data={setAppCurUser}/>
     } else {
-      return <History/>
+      return <Account data={setAppCurUser}/>
     }
   }
   const getRegisterPage = () => {
     if (appCurUser === "") {
       return <Register data={setAppCurUser}/>
     } else {
-      return <History/>
+      return <Account data={setAppCurUser}/>
     }
   }
 
   return (
     <div  className = "App">
-      <UserContextProvider>
-        <InventoryContextProvider>
-          <CartContextProvider>
-            <ShopContextProvider>
-              <Router>
-                <NavBar/>
-                <Routes>
-                  <Route path="/login" element={
-                  getLoginPage()
-                  }></Route>
-                  <Route path="/register" element={getRegisterPage()}></Route>
-                  <Route path="/" element={<Shop/>}></Route>
-                  <Route path="/checkout" element={<Checkout/>}></Route>
-                  <Route path="/history" element={<History/>}></Route>
-                </Routes>
-              </Router>
-            </ShopContextProvider>
-          </CartContextProvider>
-        </InventoryContextProvider>
-      </UserContextProvider>
+      <PaymentContextProvider>
+        <UserContextProvider>
+          <InventoryContextProvider>
+            <CartContextProvider>
+                <Router>
+                  <NavBar/>
+                  <Routes>
+                    <Route path="/login" element={
+                    getLoginPage()
+                    }></Route>
+                    <Route path="/register" element={getRegisterPage()}></Route>
+                    <Route path="/" element={<Shop/>}></Route>
+                    <Route path="/checkout" element={<Checkout/>}></Route>
+                  </Routes>
+                </Router>
+            </CartContextProvider>
+          </InventoryContextProvider>
+        </UserContextProvider>
+      </PaymentContextProvider>
     </div>
   );
 

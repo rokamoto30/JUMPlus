@@ -11,10 +11,12 @@ padding: 10px 15px;
 margin-left: 2vw;
 margin-right: 2vw;
 display: inline-block;
+border-radius: 15px;transition: box-shadow 0.2s ease-in-out;
+
 }
 
 .navbar a:hover {
 background-color: #ddd;
-border-radius: 15px;
+
 box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }

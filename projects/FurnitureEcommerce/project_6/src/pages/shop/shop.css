@@ -90,6 +90,8 @@
     width: 3vw;
     height: 2vw;
     text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.2s ease-in-out;
+
   }
   
 

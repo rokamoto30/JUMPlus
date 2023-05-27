@@ -1,11 +1,11 @@
 import React, {useContext, useEffect} from 'react'
-import {ShopContext} from "../../context/shopContext"
+import {CartContext} from "../../context/context"
 
 
 export const Product = (props) => {
   
   const {id, name, price, image, source} = props.data;
-  const{addToCart, cartItems, removeFromCart} = useContext(ShopContext);
+  const{addToCart, cartItems, removeFromCart} = useContext(CartContext);
   const itemCount = cartItems[id];
 
   const display = () => {
