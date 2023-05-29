@@ -47,11 +47,14 @@ export const Checkout = () => {
   }
 
   const totalComponent = () => {
-    let props = {
-      label: "Total",
-      count: getTotal()
+    if (getTotal() > 0) {
+      let props = {
+        label: "Total",
+        count: getTotal()
+      }
+      return <CheckoutItem data={props}></CheckoutItem>
     }
-    return <CheckoutItem data={props}></CheckoutItem>
+    
   }
 
   const setTotalTime = () => {
