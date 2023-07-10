@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,18 +21,22 @@ public class Product implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
+    @Schema(description="product name")
     private String name;
 
     @Column(nullable = false)
+    @Schema(description="product url")
     private String imgUrl;
 
     @JsonIgnore
     @OneToMany(mappedBy = "product", cascade=CascadeType.ALL)
+    @Schema(description="list of purchases")
     private List<Purchase> purchases;
 
     @JsonIgnore
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
+    @Schema(description="product stock")
     private Stock stock;
     
     public Product(){}
@@ -81,6 +86,12 @@ public class Product implements Serializable {
     public void setStock(Stock stock) {
         this.stock = stock;
     }
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", imgUrl=" + imgUrl + ", purchases=" + purchases + ", stock="
+				+ stock + "]";
+	}
 
     
     

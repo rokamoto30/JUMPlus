@@ -2,6 +2,7 @@ package com.furnitureApp.model;
 
 import java.io.Serializable;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,14 +20,17 @@ public class Purchase implements Serializable {
 
     @Min(0)
     @Column(nullable = false)
+    @Schema(description="quantity bought")
     private Integer quantity;
 
     @ManyToOne
     @JoinColumn(name="history_id", referencedColumnName = "id")
+    @Schema(description="associated checkout")
     private Checkout checkout;
 
     @ManyToOne
     @JoinColumn(name="product_id", referencedColumnName = "id")
+    @Schema(description="associated product")
     private Product product;
 
     public Purchase(){}

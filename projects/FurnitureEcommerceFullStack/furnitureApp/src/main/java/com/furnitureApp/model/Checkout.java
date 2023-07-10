@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,22 +24,24 @@ public class Checkout implements Serializable {
     private Integer id;
 
 	@Column(nullable=false)
+	@Schema(description="time of purchase")
 	private LocalDateTime time;
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
+    @Schema(description="user who made the purchase")
     private User user;
 
     @JsonIgnore
     @OneToMany(mappedBy = "checkout", cascade=CascadeType.ALL)
+    @Schema(description="all purchases associated with this checkout")
     private List<Purchase> purchases;
 
     public Checkout(){}
 
-    public Checkout(LocalDateTime time, User user, List<Purchase> purchases) {
+    public Checkout(LocalDateTime time, User user) {
         this.time = time;
         this.user = user;
-        this.purchases = purchases;
     }
 
     public Integer getId() {
