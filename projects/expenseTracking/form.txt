@@ -1,0 +1,7 @@
+{
+  "id" : null,
+  "username" : null,
+  "password" : null,
+  "monthBudget" : null,
+  "yearBudget" : null
+}
