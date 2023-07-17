@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/JUMPlus/static/css/main.0e7e9f26.css",
+    "main.js": "/JUMPlus/static/js/main.ee4ca818.js",
+    "static/js/787.0e2ad688.chunk.js": "/JUMPlus/static/js/787.0e2ad688.chunk.js",
+    "static/media/logo.svg": "/JUMPlus/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/JUMPlus/index.html",
+    "main.0e7e9f26.css.map": "/JUMPlus/static/css/main.0e7e9f26.css.map",
+    "main.ee4ca818.js.map": "/JUMPlus/static/js/main.ee4ca818.js.map",
+    "787.0e2ad688.chunk.js.map": "/JUMPlus/static/js/787.0e2ad688.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e7e9f26.css",
+    "static/js/main.ee4ca818.js"
+  ]
+}
